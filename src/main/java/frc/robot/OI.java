@@ -14,9 +14,9 @@ public class OI
     
     public static boolean isFirePressed()
     {
-        // Require holding two buttons to 'fire'
+        // Require holding right button and pressing the left to 'fire'
         return stick.getRawButton(PDPController.RIGHT_FRONT_BUTTON)  &&
-               stick.getRawButton(PDPController.LEFT_FRONT_BUTTON);
+               stick.getRawButtonPressed(PDPController.LEFT_FRONT_BUTTON);
     }
 
     public static double getSpeed()

@@ -1,18 +1,19 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.TimedCommand;
 
 /** Command that 'fires' T-Shirt */
 public class FireCommand extends TimedCommand
 {
-    private final Solenoid sol;
+    private final DigitalOutput sol;
 
-    public FireCommand(final Solenoid sol)
+    public FireCommand(final DigitalOutput sol)
     {
         // Run TimedCommand for 2 seconds
-        super(2.0);
-        // Remember which solenoid to use
+        super(1.0);
+        // Remember which output to use
         this.sol = sol;
     }
 
