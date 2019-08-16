@@ -7,9 +7,11 @@ public class RobotMap
 {
     // TODO What _is_ connected to the RoboRIO?
     
-    // Assuming there are PMW drive motors
-    public static final int PWM_LEFT = 1;
-    public static final int PWM_RIGHT = 2;
+    // Drive motors on CAN bus
+    public static final int LEFT_MASTER = 1;
+    public static final int LEFT_SLAVE = 2;
+    public static final int RIGHT_MASTER = 3;
+    public static final int RIGHT_SLAVE = 4;
 
     // Motor to raise/lower the tubes
     public static final int PMW_TILT = 3;
@@ -20,7 +22,4 @@ public class RobotMap
     public static final int SOL_A = 0;
     public static final int SOL_B = 1;
     public static final int SOL_C = 2;
-
-    // Compressor on/off? Pressure switch?
-    // LED on/off?
 }
