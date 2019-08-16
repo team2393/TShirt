@@ -22,4 +22,7 @@ public class RobotMap
     public static final int TUBE_A = 0;
     public static final int TUBE_B = 1;
     public static final int TUBE_C = 2;
+    
+    // TODO Is there a tilt encoder?
+    // Are there limit switches?
 }
