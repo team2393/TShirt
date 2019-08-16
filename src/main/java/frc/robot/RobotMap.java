@@ -18,8 +18,8 @@ public class RobotMap
 
     // Does the tilt motor have an encoder? Or limit switches?
 
-    // Solenoids for the 3 tubes
-    public static final int SOL_A = 0;
-    public static final int SOL_B = 1;
-    public static final int SOL_C = 2;
+    // Sprinkler valves for the 3 tubes on DIO ports
+    public static final int TUBE_A = 0;
+    public static final int TUBE_B = 1;
+    public static final int TUBE_C = 2;
 }
