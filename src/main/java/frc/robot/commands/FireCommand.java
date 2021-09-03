@@ -1,22 +1,21 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.DigitalOutput;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 /** Command that 'fires' T-Shirt */
 public class FireCommand extends CommandBase
 {
     protected Timer m_timer = new Timer();
 
-    private final DigitalOutput sol;
+    private final DigitalOutput tube;
 
-    public FireCommand(final DigitalOutput sol)
+    /** @param tube Which tube to fire */
+    public FireCommand(final DigitalOutput tube)
     {
         // Remember which output to use
-        this.sol = sol;
+        this.tube = tube;
     }
 
     @Override
@@ -25,7 +24,7 @@ public class FireCommand extends CommandBase
         m_timer.reset();
         m_timer.start();
         // Fire!!
-        sol.set(true);
+        tube.set(true);
     }
   
     @Override
@@ -39,6 +38,6 @@ public class FireCommand extends CommandBase
     public void end(boolean interrupted)
     {
         // Assume we fired, stop wasting air
-        sol.set(false);
+        tube.set(false);
     }
 }
