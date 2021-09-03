@@ -1,36 +1,34 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.util.PDPController;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 /** Operator interface: Which joystick axis, which button does what?  */
 public class OI
 {
-    private static final Joystick stick = new Joystick(0);
+    public static final XboxController joystick = new XboxController(0);
 
     // TODO What stick/button should to what?
     
     public static boolean isFirePressed()
     {
         // Require holding right button and pressing the left to 'fire'
-        return stick.getRawButton(PDPController.RIGHT_FRONT_BUTTON)  &&
-               stick.getRawButtonPressed(PDPController.LEFT_FRONT_BUTTON);
+        return joystick.getRawButton(XboxController.Button.kBumperLeft.value) &&
+               joystick.getRawButton(XboxController.Button.kBumperRight.value);
     }
 
     public static double getSpeed()
     {
-        return stick.getRawAxis(PDPController.RIGHT_STICK_VERTICAL);
+        return joystick.getY(Hand.kRight);
     }
 
     public static double getTurn()
     {
-        return stick.getRawAxis(PDPController.RIGHT_STICK_HORIZONTAL);
+        return joystick.getX(Hand.kRight);
     }
 
     public static double getTilt()
     {
-        return stick.getRawAxis(PDPController.LEFT_STICK_VERTICAL);
+        return joystick.getY(Hand.kLeft);
     }
 }
