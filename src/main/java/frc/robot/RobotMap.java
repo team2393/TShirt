@@ -5,7 +5,7 @@ package frc.robot;
  */
 public class RobotMap
 {
-    // TODO What _is_ connected to the RoboRIO?
+    // TODO Determine what is connected to the RoboRIO
     
     // Drive motors on CAN bus
     public static final int LEFT_MASTER = 1;
