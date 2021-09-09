@@ -1,7 +1,7 @@
 T-Shirt
 =======
 
-Start of T-Shirt code update to Java.
+T-Shirt code update.
 
 Git Clone & Open in VS Code
 ---------------------------
