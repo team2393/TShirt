@@ -9,6 +9,15 @@ public class OI
     public static final XboxController joystick = new XboxController(0);
 
     // TODO What stick/button should to what?
+    public static boolean isTiltUp()
+    {
+        return joystick.getPOV() == 0;
+    }
+
+    public static boolean isTiltDown()
+    {
+        return joystick.getPOV() == 180;
+    }
     
     public static boolean isFirePressed()
     {

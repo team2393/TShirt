@@ -7,14 +7,14 @@ public class RobotMap
 {
     // TODO Determine what hardware is connected to the RoboRIO
     
-    // Drive motors on CAN bus
-    public static final int LEFT_MASTER = 1;
+    // Drive motors on PWM outputs
+    public static final int LEFT_MASTER = 2;
     public static final int LEFT_SLAVE = 2;
     public static final int RIGHT_MASTER = 3;
     public static final int RIGHT_SLAVE = 4;
 
     // Motor to raise/lower the tubes
-    public static final int PMW_TILT = 3;
+    public static final int PWM_TILT = 2;
 
     // Does the tilt motor have an encoder? Or limit switches?
 
