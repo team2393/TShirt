@@ -15,7 +15,10 @@ public class TShirtRobot extends TimedRobot
     @Override
     public void robotInit()
     {
-        System.out.println("T-shirt robot");
+        System.out.println("\n\n\n\n");
+        System.out.println("*******************");
+        System.out.println("** T-shirt robot **");
+        System.out.println("*******************");
     }
 
     /** Called all the time */
