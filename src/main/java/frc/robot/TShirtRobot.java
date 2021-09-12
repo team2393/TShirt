@@ -60,9 +60,9 @@ public class TShirtRobot extends TimedRobot
         OI.joystick.getAButtonPressed();
 
         // TODO Enable PMW on LEDs for pattern3?
-        red.enablePWM(0);
-        green.enablePWM(0);
-        blue.enablePWM(0);
+        // red.enablePWM(0);
+        // green.enablePWM(0);
+        // blue.enablePWM(0);
     }
 
     /** Called in teleop mode */
@@ -97,7 +97,7 @@ public class TShirtRobot extends TimedRobot
         //     tube_a.set(false);
 
         // LED
-        led_pattern3();
+        led_pattern1();
     }
     
     // First pattern
