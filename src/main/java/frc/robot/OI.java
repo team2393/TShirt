@@ -8,35 +8,37 @@ public class OI
 {
     public static final XboxController joystick = new XboxController(0);
 
-    public static boolean isTiltUp()
+    /** @return Is the 'up' button pushed? */
+    public static boolean isTiltUpPushed()
     {
         return joystick.getPOV() == 0;
     }
 
-    public static boolean isTiltDown()
+    /** @return Is the 'down' button pushed? */
+    public static boolean isTiltDownPushed()
     {
         return joystick.getPOV() == 180;
     }
     
-    public static boolean isFirePressed()
-    {
-        // Require holding right button and pressing the left to 'fire'
-        return joystick.getRawButton(XboxController.Button.kBumperLeft.value) &&
-               joystick.getRawButton(XboxController.Button.kBumperRight.value);
-    }
-
+    /** @return Forward/backward speed value -1..1 */
     public static double getSpeed()
     {
         return joystick.getY(Hand.kRight);
     }
-
+    
+    /** @return Left/right value -1..1 */
     public static double getTurn()
     {
         return joystick.getX(Hand.kRight);
     }
-
-    public static double getTilt()
+    
+    // Idea: Use one 'safe' fire trigger,
+    // require holding both bumpers to fire.
+    // Robot code then needs to figure our which tube to use
+    public static boolean isFirePressed()
     {
-        return joystick.getY(Hand.kLeft);
+        // Require holding right button and pressing the left to 'fire'
+        return joystick.getBumper(Hand.kLeft) &&
+               joystick.getBumper(Hand.kRight);
     }
 }

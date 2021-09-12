@@ -16,13 +16,10 @@ public class RobotMap
     public static final int RIGHT_MASTER = 3;
     public static final int RIGHT_SLAVE = 4;
 
-    // Does the tilt motor have an encoder? Or limit switches?
+    // TODO Does the tilt motor have an encoder? Or limit switches?
 
     // Sprinkler valves for the 3 tubes on DIO ports
     public static final int TUBE_A = 0;
     public static final int TUBE_B = 1;
     public static final int TUBE_C = 2;
-    
-    // TODO Is there a tilt encoder?
-    // Are there limit switches?
 }

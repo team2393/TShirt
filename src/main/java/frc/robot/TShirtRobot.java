@@ -33,9 +33,9 @@ public class TShirtRobot extends TimedRobot
     @Override
     public void teleopPeriodic()
     {
-        if (OI.isTiltUp())
+        if (OI.isTiltUpPushed())
             tilt_motor.set(0.3);
-        else if (OI.isTiltDown())
+        else if (OI.isTiltDownPushed())
             tilt_motor.set (-0.3);
         else
             tilt_motor.set (0);
