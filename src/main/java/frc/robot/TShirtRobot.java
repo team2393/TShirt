@@ -2,6 +2,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 
@@ -13,6 +14,7 @@ public class TShirtRobot extends TimedRobot
     private double tilt_speed = 0.5;
     private final VictorSP left_motor = new VictorSP(RobotMap.PWM_LEFT);
     private final VictorSP right_motor = new VictorSP(RobotMap.PWM_RIGHT);
+    DifferentialDrive drive = new DifferentialDrive(left_motor, right_motor);
 
     /** Run once on startup */
     @Override
@@ -32,6 +34,7 @@ public class TShirtRobot extends TimedRobot
         CommandScheduler.getInstance().run();
     }
 
+    
     /** Called in teleop mode */
     @Override
     public void teleopPeriodic()
@@ -45,7 +48,6 @@ public class TShirtRobot extends TimedRobot
             tilt_motor.set (0);
 
         // Drive
-        left_motor.set(OI.getSpeed()  + OI.getTurn());
-        right_motor.set(-OI.getSpeed()  + OI.getTurn());
+        drive.arcadeDrive(OI.getSpeed(), OI.getTurn());
     }
 }
