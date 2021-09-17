@@ -11,6 +11,8 @@ public class TShirtRobot extends TimedRobot
     // Motors
     private final VictorSP tilt_motor = new VictorSP(RobotMap.PWM_TILT);
     private double tilt_speed = 0.5;
+    private final VictorSP left_motor = new VictorSP(RobotMap.PWM_LEFT);
+    private final VictorSP right_motor = new VictorSP(RobotMap.PWM_RIGHT);
 
     /** Run once on startup */
     @Override
@@ -34,11 +36,16 @@ public class TShirtRobot extends TimedRobot
     @Override
     public void teleopPeriodic()
     {
+        // Handle tilt
         if (OI.isTiltUpPushed())
             tilt_motor.set(tilt_speed);
         else if (OI.isTiltDownPushed())
             tilt_motor.set (-tilt_speed);
         else
             tilt_motor.set (0);
+
+        // Drive
+        left_motor.set(OI.getSpeed()  + OI.getTurn());
+        right_motor.set(-OI.getSpeed()  + OI.getTurn());
     }
 }

@@ -23,13 +23,13 @@ public class OI
     /** @return Forward/backward speed value -1..1 */
     public static double getSpeed()
     {
-        return joystick.getY(Hand.kRight);
+        return -joystick.getRawAxis(5);
     }
     
     /** @return Left/right value -1..1 */
     public static double getTurn()
     {
-        return joystick.getX(Hand.kRight);
+        return joystick.getRawAxis(4);
     }
     
     // Idea: Use one 'safe' fire trigger,

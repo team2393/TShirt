@@ -11,11 +11,9 @@ public class RobotMap
     public static final int PWM_TILT = 2;
 
     // Drive motors on PWM outputs
-    public static final int LEFT_MASTER = 2;
-    public static final int LEFT_SLAVE = 2;
-    public static final int RIGHT_MASTER = 3;
-    public static final int RIGHT_SLAVE = 4;
-
+    public static final int PWM_LEFT = 0;
+    public static final int PWM_RIGHT = 1;
+   
     // TODO Does the tilt motor have an encoder? Or limit switches?
 
     // Sprinkler valves for the 3 tubes on DIO ports
