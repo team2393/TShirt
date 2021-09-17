@@ -1,5 +1,6 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -15,6 +16,9 @@ public class TShirtRobot extends TimedRobot
     private final VictorSP left_motor = new VictorSP(RobotMap.PWM_LEFT);
     private final VictorSP right_motor = new VictorSP(RobotMap.PWM_RIGHT);
     DifferentialDrive drive = new DifferentialDrive(left_motor, right_motor);
+    DigitalOutput top_tube = new DigitalOutput(RobotMap.TOP);
+    DigitalOutput left_tube = new DigitalOutput(RobotMap.LEFT);
+    DigitalOutput right_tube = new DigitalOutput(RobotMap.RIGHT);
 
     /** Run once on startup */
     @Override
@@ -49,5 +53,12 @@ public class TShirtRobot extends TimedRobot
 
         // Drive
         drive.arcadeDrive(OI.getSpeed(), OI.getTurn());
+
+        //TUBES
+        if (OI.isTopPressed())
+            System.out.println("TOP!!");
+        top_tube.set(OI.isTopPressed());
+        left_tube.set(OI.isLeftPressed());
+        right_tube.set(OI.isRightPressed());
     }
 }

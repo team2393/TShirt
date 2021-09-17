@@ -32,6 +32,21 @@ public class OI
         return joystick.getRawAxis(4);
     }
     
+    public static boolean isTopPressed() 
+    {
+        return joystick.getYButton();
+    }
+
+    public static boolean isLeftPressed() 
+    {
+        return joystick.getXButton();
+    }
+
+    public static boolean isRightPressed() 
+    {
+        return joystick.getBButton();
+    }
+    
     // Idea: Use one 'safe' fire trigger,
     // require holding both bumpers to fire.
     // Robot code then needs to figure our which tube to use
