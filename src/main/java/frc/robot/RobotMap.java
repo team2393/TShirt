@@ -16,8 +16,13 @@ public class RobotMap
    
     // TODO Does the tilt motor have an encoder? Or limit switches?
 
-    // Sprinkler valves for the 3 tubes on DIO ports
-    public static final int TOP = 1;
-    public static final int LEFT = 2;
-    public static final int RIGHT = 3;
+    // Pressure sensors for the 3 tubes on DIO ports
+    public static final int TOPsensor = 1;
+    public static final int LEFTsensor = 2;
+    public static final int RIGHTsensor = 3;
+
+      // PCM outputs for the 3 tubes
+      public static final int TOP = 0;
+      public static final int LEFT = 1;
+      public static final int RIGHT = 2;
 }

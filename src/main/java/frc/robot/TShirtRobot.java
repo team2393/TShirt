@@ -1,9 +1,11 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 
@@ -16,9 +18,10 @@ public class TShirtRobot extends TimedRobot
     private final VictorSP left_motor = new VictorSP(RobotMap.PWM_LEFT);
     private final VictorSP right_motor = new VictorSP(RobotMap.PWM_RIGHT);
     DifferentialDrive drive = new DifferentialDrive(left_motor, right_motor);
-    DigitalOutput top_tube = new DigitalOutput(RobotMap.TOP);
-    DigitalOutput left_tube = new DigitalOutput(RobotMap.LEFT);
-    DigitalOutput right_tube = new DigitalOutput(RobotMap.RIGHT);
+    DigitalInput top_tube = new DigitalInput(RobotMap.TOPsensor);
+    DigitalInput left_tube = new DigitalInput(RobotMap.LEFTsensor);
+    DigitalInput right_tube = new DigitalInput(RobotMap.RIGHTsensor);
+    Solenoid top = new Solenoid(RobotMap.TOP);
 
     /** Run once on startup */
     @Override
@@ -57,8 +60,13 @@ public class TShirtRobot extends TimedRobot
         //TUBES
         if (OI.isTopPressed())
             System.out.println("TOP!!");
-        top_tube.set(OI.isTopPressed());
-        left_tube.set(OI.isLeftPressed());
-        right_tube.set(OI.isRightPressed());
+         top.set(OI.isTopPressed());
+        // left_tube.set(OI.isLeftPressed());
+        // right_tube.set(OI.isRightPressed());
+
+
+        SmartDashboard.putBoolean("Top Sensor", top_tube.get());
+        SmartDashboard.putBoolean("Right Sensor", right_tube.get());
+        SmartDashboard.putBoolean("Left Sensor", left_tube.get());
     }
 }
