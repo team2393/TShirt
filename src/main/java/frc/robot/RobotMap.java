@@ -4,25 +4,32 @@ package frc.robot;
  *  and what devices are conneced to them
  */
 public class RobotMap
-{
-    // TODO Determine what hardware is connected to the RoboRIO
-    
+{    
     // Motor to raise/lower the tubes
+    // There is no limit switch,
+    // operator needs to check when fully up/down
     public static final int PWM_TILT = 2;
 
     // Drive motors on PWM outputs
+    // The two 'left' motors are both on one port,
+    // as are the two 'right' motors
     public static final int PWM_LEFT = 0;
     public static final int PWM_RIGHT = 1;
    
-    // TODO Does the tilt motor have an encoder? Or limit switches?
-
     // Pressure sensors for the 3 tubes on DIO ports
-    public static final int TOPsensor = 1;
-    public static final int LEFTsensor = 2;
-    public static final int RIGHTsensor = 3;
+    // Indicates if there is sufficient pressure in a tube
+    public static final int DIO_TOP_SENSOR = 1;
+    public static final int DIO_LEFT_SENSOR = 2;
+    public static final int DIO_RIGHT_SENSOR = 3;
 
-      // PCM outputs for the 3 tubes
-      public static final int TOP = 0;
-      public static final int LEFT = 1;
-      public static final int RIGHT = 2;
+    // Signal to Arduino which controls the LEDs,
+    // allows switching between two LED patterns
+    public static final int DIO_LED_MODE = 6;
+
+    // Pneumatic Control Module channels for the 3 tubes
+    // 12V from PCM goes to relay,
+    // output of relay provides 20..24V to sprinkler valve
+    public static final int TOP_SOLENOID = 0;
+    public static final int LEFT_SOLENOID = 1;
+    public static final int RIGHT_SOLENOID = 2;
 }

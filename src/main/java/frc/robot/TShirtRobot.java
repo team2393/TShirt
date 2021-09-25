@@ -15,13 +15,17 @@ public class TShirtRobot extends TimedRobot
     // Motors
     private final VictorSP tilt_motor = new VictorSP(RobotMap.PWM_TILT);
     private double tilt_speed = 0.5;
+
     private final VictorSP left_motor = new VictorSP(RobotMap.PWM_LEFT);
     private final VictorSP right_motor = new VictorSP(RobotMap.PWM_RIGHT);
     DifferentialDrive drive = new DifferentialDrive(left_motor, right_motor);
-    DigitalInput top_tube = new DigitalInput(RobotMap.TOPsensor);
-    DigitalInput left_tube = new DigitalInput(RobotMap.LEFTsensor);
-    DigitalInput right_tube = new DigitalInput(RobotMap.RIGHTsensor);
-    Solenoid top = new Solenoid(RobotMap.TOP);
+    
+    // Pressure sensors
+    DigitalInput top_sensor = new DigitalInput(RobotMap.DIO_TOP_SENSOR);
+    DigitalInput left_sensor = new DigitalInput(RobotMap.DIO_LEFT_SENSOR);
+    DigitalInput right_sensor = new DigitalInput(RobotMap.DIO_RIGHT_SENSOR);
+
+    Solenoid top = new Solenoid(RobotMap.TOP_SOLENOID);
 
     /** Run once on startup */
     @Override
@@ -41,7 +45,6 @@ public class TShirtRobot extends TimedRobot
         CommandScheduler.getInstance().run();
     }
 
-    
     /** Called in teleop mode */
     @Override
     public void teleopPeriodic()
@@ -57,16 +60,13 @@ public class TShirtRobot extends TimedRobot
         // Drive
         drive.arcadeDrive(OI.getSpeed(), OI.getTurn());
 
-        //TUBES
-        if (OI.isTopPressed())
-            System.out.println("TOP!!");
-         top.set(OI.isTopPressed());
+        // Tubes
+        SmartDashboard.putBoolean("Top Sensor", top_sensor.get());
+        SmartDashboard.putBoolean("Right Sensor", right_sensor.get());
+        SmartDashboard.putBoolean("Left Sensor", left_sensor.get());
+
+        top.set(OI.isTopPressed());
         // left_tube.set(OI.isLeftPressed());
         // right_tube.set(OI.isRightPressed());
-
-
-        SmartDashboard.putBoolean("Top Sensor", top_tube.get());
-        SmartDashboard.putBoolean("Right Sensor", right_tube.get());
-        SmartDashboard.putBoolean("Left Sensor", left_tube.get());
     }
 }
