@@ -1,6 +1,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -24,6 +25,8 @@ public class TShirtRobot extends TimedRobot
     private DigitalInput top_sensor = new DigitalInput(RobotMap.DIO_TOP_SENSOR);
     private DigitalInput left_sensor = new DigitalInput(RobotMap.DIO_LEFT_SENSOR);
     private DigitalInput right_sensor = new DigitalInput(RobotMap.DIO_RIGHT_SENSOR);
+
+    DigitalOutput led = new DigitalOutput(RobotMap.DIO_LED_MODE);
 
     private Solenoid top = new Solenoid(RobotMap.TOP_SOLENOID);
     private Solenoid left = new Solenoid(RobotMap.LEFT_SOLENOID);
@@ -106,5 +109,9 @@ public class TShirtRobot extends TimedRobot
         top.set(now < fire_top_time);
         left.set(now < fire_left_time);
         right.set(now < fire_right_time);
+
+        led.set(OI.isTopPressed()  ||
+                OI.isLeftPressed() ||
+                OI.isRightPressed());
     }
 }

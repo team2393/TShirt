@@ -24,7 +24,7 @@ public class RobotMap
 
     // Signal to Arduino which controls the LEDs,
     // allows switching between two LED patterns
-    public static final int DIO_LED_MODE = 6;
+    public static final int DIO_LED_MODE = 5;
 
     // Pneumatic Control Module channels for the 3 tubes
     // 12V from PCM goes to relay,
