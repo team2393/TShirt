@@ -81,8 +81,8 @@ public class TShirtRobot extends TimedRobot
 
         final long now = System.currentTimeMillis();
 
-        // Is the button pressed, and it's OK to fire again?
-        if (OI.isTopPressed()  &&  now > remain_off)
+        // Is the button pressed, and it's OK to fire again and are both triggers pressed?
+        if (OI.isTopPressed()  &&  now > remain_off  &&  OI.isFirePressed())
         {
             // Fire top tube from now until ... ms
             fire_top_time = now + 500;
@@ -90,7 +90,7 @@ public class TShirtRobot extends TimedRobot
             remain_off = now + 2000;
         }
     
-        if (OI.isLeftPressed()  &&  now > remain_off)
+        if (OI.isLeftPressed()  &&  now > remain_off  &&  OI.isFirePressed())
         {
             // Fire top tube from now until ... ms
             fire_left_time = now + 500;
@@ -98,7 +98,7 @@ public class TShirtRobot extends TimedRobot
             remain_off = now + 2000;
         }
         
-        if (OI.isRightPressed()  &&  now > remain_off)
+        if (OI.isRightPressed()  &&  now > remain_off  &&  OI.isFirePressed())
         {
             // Fire top tube from now until ... ms
             fire_right_time = now + 500;
