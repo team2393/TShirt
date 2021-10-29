@@ -23,7 +23,7 @@ public class OI
     /** @return Forward/backward speed value -1..1 */
     public static double getSpeed()
     {
-        return -joystick.getRawAxis(5);
+        return -joystick.getRawAxis(1);
     }
     
     /** @return Left/right value -1..1 */

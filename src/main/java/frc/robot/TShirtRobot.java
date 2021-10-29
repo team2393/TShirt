@@ -15,7 +15,7 @@ public class TShirtRobot extends TimedRobot
 {
     // Motors
     private final VictorSP tilt_motor = new VictorSP(RobotMap.PWM_TILT);
-    private double tilt_speed = 0.5;
+    private double tilt_speed = 0.7;
 
     private final VictorSP left_motor = new VictorSP(RobotMap.PWM_LEFT);
     private final VictorSP right_motor = new VictorSP(RobotMap.PWM_RIGHT);
@@ -44,7 +44,7 @@ public class TShirtRobot extends TimedRobot
     {
         System.out.println("\n\n\n\n");
         System.out.println("*******************");
-        System.out.println("** T-shirt robot **");
+        System.out.println("** T-Shirt Robot **");
         System.out.println("*******************");
     }
 
@@ -110,8 +110,6 @@ public class TShirtRobot extends TimedRobot
         left.set(now < fire_left_time);
         right.set(now < fire_right_time);
 
-        led.set(OI.isTopPressed()  ||
-                OI.isLeftPressed() ||
-                OI.isRightPressed());
+        led.set(OI.isFirePressed());
     }
 }
